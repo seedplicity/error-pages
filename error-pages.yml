@@ -6,6 +6,7 @@ templates:
     name: ghost # name is optional, if path is defined
     content: ${GHOST_TEMPLATE_CONTENT}
   - path: ./templates/l7-light.html
+  - path: ./templates/elfhosted.html
   - path: ./templates/l7-dark.html
   - path: ./templates/shuffle.html
   - path: ./templates/noise.html
@@ -116,7 +117,11 @@ pages:
 
   429:
     message: Too Many Requests
-    description: Too many requests in a given amount of time
+    description: | 
+      Too many requests in a given amount of time. 
+      <P>If you're looking for one of our <A HREF="https://elfhosted.com/stremio-addons/">public Stremio Addons</A>, it's possible that you've hit the public, <A HREF="https://github.com/funkypenguin/elf-infra/blob/ci/traefik-middleware/middleware-rate-limit-public-stremio-addon.yaml">per-source rate-limit</A>.<BR/>
+      Refresh to retry another randomly-balanced node, or try again after 5 minutes.</P>
+      <P>Hosted instances <A HREF="https://store.elfhosted.com/product-category/stremio-addons">are available</A> with 10 x higher ratelimits, from $$0.05/day, with $$10 free credit for new accounts</P>
 
   500:
     message: Internal Server Error
@@ -128,7 +133,7 @@ pages:
 
   503:
     message: Service Unavailable
-    description: The server is temporarily overloading or down
+    description: Doing magic, come back soon... <P>(<I>usually indicates your apps are being provisioned / updated</I>)</P>
 
   504:
     message: Gateway Timeout
